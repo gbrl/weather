@@ -11,7 +11,7 @@ $(document).ready(function() {
       var cities = results["RESULTS"];
       console.log(cities);
       $.each(cities, function( index, value ) {
-        $("ol").append("<li><a href='http://api.wunderground.com/api/1e0a68802ba3c6ed/conditions/q/"+ value["lat"] + "," + value["lon"] + ".json'>" + value["name"] + "</a></li>");
+        $("section").append("<a href='http://api.wunderground.com/api/1e0a68802ba3c6ed/conditions/q/"+ value["lat"] + "," + value["lon"] + ".json' class='button'>" + value["name"] + "</a> &nbsp; ");
       });
     });
   });
