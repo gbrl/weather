@@ -1,7 +1,25 @@
-body {padding: 4%;}
-h3 {margin: 20px 0; display: block; width: 100%}
-h3#location-name {margin: 5px 0 0 0}
-#locations-header {display:none; border-top: 1px solid #ccc; padding-top: 20px;}
-#location-info {display: none}
-form {border-bottom: 1px solid #ccc}
-#image img {margin-top: 15px}
+body {
+    padding: 4%;
+}
+h3 {
+    margin: 20px 0;
+    display: block;
+    width: 100%
+}
+h3#location-name {
+    margin: 5px 0 0 0
+}
+#locations-header {
+    display: none;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+#location-info {
+    display: none
+}
+form {
+    border-bottom: 1px solid #ccc
+}
+#image img {
+    margin-top: 15px
+}
