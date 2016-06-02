@@ -1,25 +1,50 @@
 body {
     padding: 4%;
 }
+
+h1 {font-weight: bold}
+
 h3 {
     margin: 20px 0;
     display: block;
     width: 100%
 }
 h3#location-name {
-    margin: 5px 0 0 0
+    margin: 5px 0 0 0;
+    font-weight: bold;
 }
 #locations-header {
     display: none;
-    border-top: 1px solid #ccc;
+    border-top: 2px solid #ccc;
     padding-top: 20px;
 }
 #location-info {
-    display: none
+    display: none;
+    background-color: #eee;
+    padding: 0 20px 25px 20px;
 }
 form {
-    border-bottom: 1px solid #ccc
+    background-color: #aaa399;
+    padding: 20px 20px 10px 20px;
 }
+
+form input {
+    border-radius:9px !important
+ }
+
 #image img {
-    margin-top: 15px
+    margin-top: 23px;
+    height: 70px;
+    float: left;
+    margin-bottom: 80px;
+    margin-right: 30px;
 }
+
+a.button {
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+section {padding: 20px 0}
+
+span {font-weight: bold}
