@@ -19,12 +19,14 @@ $(document).ready(function() {
   $("section").on("click", "a", function(e){
     e.preventDefault();
     var url = $(this).attr("href");
+    var name = $(this).text();
     $.get(url, function(data){
-      $("#location-name").html(data["current_observation"]["display_location"]["full"]);
+      console.log(data["current_observation"]);
+      $("#location-name").html(name);
       $("#weather").html(data["current_observation"]["weather"]);
       $("#image").html("<img src='"+ data["current_observation"]["icon_url"] + "'/>");
-      $("#temp_c").html(data["current_observation"]["temp_c"] + "Celcius");
-      $("#wind").html(data["current_observation"]["wind_dir"]);
+      $("#temp_c").html(data["current_observation"]["temp_c"] + " Celcius");
+      $("#wind").html(data["current_observation"]["wind_string"]);
       $("#humidity").html(data["current_observation"]["relative_humidity"]);
       $("#location-info").fadeIn();
     });
