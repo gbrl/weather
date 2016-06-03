@@ -5,13 +5,14 @@ $(document).ready(function() {
 
     $("section").html("");
     $("#locations-header").fadeIn();
-    
+
     var city_search_url = "http://autocomplete.wunderground.com/aq?query=";
     var query = $(this).children("#name").val();
     var query_url = city_search_url + query;
 
     $.ajax({
       url: query_url,
+      xhrFields: {withCredentials: true},
       type: "GET",
       crossDomain: true,
       dataType: "jsonp",
