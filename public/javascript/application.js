@@ -2,18 +2,31 @@ $(document).ready(function() {
 
   $("#search").submit(function(e) {
     e.preventDefault();
+
+    $("section").html("");
     $("#locations-header").fadeIn();
+    
     var city_search_url = "http://autocomplete.wunderground.com/aq?query=";
     var query = $(this).children("#name").val();
     var query_url = city_search_url + query;
-    $("section").html("");
-    $.get(query_url,function( data ) {
-      var results = jQuery.parseJSON( data );
-      var cities = results["RESULTS"];
-      $.each(cities, function( index, value ) {
-        $("section").append("<a href='http://api.wunderground.com/api/1e0a68802ba3c6ed/conditions/q/"+ value["lat"] + "," + value["lon"] + ".json' class='button'>" + value["name"] + "</a> &nbsp; ");
-      });
+
+    $.ajax({
+      url: query_url,
+      type: "GET",
+      crossDomain: true,
+      dataType: "jsonp",
+      success: function (data) {
+        var results = jQuery.parseJSON( data );
+        var cities = results["RESULTS"];
+        $.each(cities, function( index, value ) {
+          $("section").append("<a href='http://api.wunderground.com/api/1e0a68802ba3c6ed/conditions/q/"+ value["lat"] + "," + value["lon"] + ".json' class='button'>" + value["name"] + "</a> &nbsp; ");
+        });
+      },
+      error: function (xhr, status) {
+        console.log("error");
+      }
     });
+
   });
 
   $("section").on("click", "a", function(e){
