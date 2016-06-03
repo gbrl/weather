@@ -10,20 +10,11 @@ $(document).ready(function() {
     var query = $(this).children("#name").val();
     var query_url = city_search_url + query;
 
-    $.ajax({
-      url: query_url,
-      type: "GET",
-      dataType: "jsonp",
-      success: function (data) {
+    $.getJSON(query_url, function( data ) {
         var cities = data["RESULTS"];
         $.each(cities, function( index, value ) {
           $("section").append("<a href='http://api.wunderground.com/api/1e0a68802ba3c6ed/conditions/q/"+ value["lat"] + "," + value["lon"] + ".json' class='button'>" + value["name"] + "</a> &nbsp; ");
         });
-      },
-      error: function (xhr, status) {
-        console.log(status);
-        console.log(xhr);
-      }
     });
 
   });
