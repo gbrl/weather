@@ -12,9 +12,7 @@ $(document).ready(function() {
 
     $.ajax({
       url: query_url,
-      xhrFields: {withCredentials: true},
       type: "GET",
-      crossDomain: true,
       dataType: "jsonp",
       success: function (data) {
         var results = jQuery.parseJSON( data );
