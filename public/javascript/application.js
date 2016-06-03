@@ -15,9 +15,7 @@ $(document).ready(function() {
       type: "GET",
       dataType: "jsonp",
       success: function (data) {
-        var json = JSON.stringify(data);
-        var results = jQuery.parseJSON(json);
-        var cities = results["RESULTS"];
+        var cities = data["RESULTS"];
         $.each(cities, function( index, value ) {
           $("section").append("<a href='http://api.wunderground.com/api/1e0a68802ba3c6ed/conditions/q/"+ value["lat"] + "," + value["lon"] + ".json' class='button'>" + value["name"] + "</a> &nbsp; ");
         });
